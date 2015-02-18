@@ -10,5 +10,6 @@ end
 
 with_driver "vagrant:#{File.dirname(__FILE__)}/vms"
 with_machine_options vagrant_options: {
-  'vm.box' => 'centos7'
+  # if you would like to use centos7 you'll need to update the chef_environment per your build
+  'vm.box' => 'ubuntu14'
 }
