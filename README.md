@@ -95,7 +95,7 @@ $ nova keypair-add --pub-key=/root/.ssh/id_rsa.pub testing
 
 ```bash
 # Access the controller as noted above
-$ nova boot test --image cirros --flavor 1  --security-groups=allow_ssh --key-name=testing testserver
+$ nova boot test --image cirros --flavor 1  --security-groups=allow_ssh --key-name=testing
 ```
 
 Wait a few seconds and the run `nova list` if Status is not Active, wait a few seconds and repeat.
