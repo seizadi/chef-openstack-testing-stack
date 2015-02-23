@@ -103,7 +103,7 @@ Wait a few seconds and the run `nova list` if Status is not Active, wait a few s
 Once status is active you should be able to log in via ssh to the listed IP.
 
 ```bash
-$ ssh <ip address from nova list output>
+$ ssh cirros@<ip address from nova list output>
 ```
 
 #### Accessing the OpenStack Dashboard
