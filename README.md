@@ -22,7 +22,7 @@ $ git clone https://github.com/jjasghar/chef-openstack-testing-stack.git testing
 $ cd testing-stack
 $ vi vagrant_linux.rb # change the 'vm.box' to the box you'd like to run.
 $ chef exec rake berks_vendor
-$ chef exec ruby -e "require 'openssl'; puts OpenSSL::PKey::RSA.new(2048).to_pem" > .chef/validator.pem
+$ chef exec ruby -e "require 'openssl'; File.binwrite('.chef/validator.pem', OpenSSL::PKey::RSA.new(2048).to_pem)"
 ```
 
 The stackforge OpenStack cookbooks by default use databags for configuring passwords.  There are four
@@ -156,7 +156,6 @@ and referenced by .chef\knife.rb.
 
 When using this on a Windows platform, here are some tweaks to make this work.
 
-- After creating the .chef/validator.pem, you will need to convert the .pem file to linux EOL and ANSI character set.
 - In order to get ssh to work, you will need an ssl client installed.  I used the one that came with [Git for Windows](git-scm.com/download).  I needed to append the `C:\Program Files (x86)\Git\bin;` to the system PATH.
 
 ## TODOs
