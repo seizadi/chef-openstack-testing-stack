@@ -73,11 +73,40 @@ $ keystone user-list
 $ nova list
 ```
 
-#### Booting up an image on the Controller
+### Working with Security Groups ###
+
+To allow ssh access to instances, a nova security group is defined as follows:
 
 ```bash
-# Access the controller as noted above
-$ nova boot test --image cirros --flavor 1
+$ nova secgroup-list
+$ nova secgroup-list-rules default
+$ nova secgroup-create allow_ssh "allow ssh to instance"
+$ nova secgroup-add-rule allow_ssh tcp 22 22 0.0.0.0/0
+$ nova secgroup-list-rules allow_ssh
+```
+
+### Working with keys ###
+
+To allow ssh keys to be injected into instance, a nova keypair is defined as follows:
+
+```bash
+# Just press Enter to all the questions
+$ ssh-keygen
+$ nova keypair-add --pub-key=/root/.ssh/id_rsa.pub mykey
+```
+
+#### Booting up a cirros image on the Controller
+
+```bash
+$ nova boot test --image cirros --flavor 1  --security-groups=allow_ssh --key-name=mykey
+```
+
+Wait a few seconds and the run `nova list` if Status is not Active, wait a few seconds and repeat.
+
+Once status is active you should be able to log in via ssh to the listed IP.
+
+```bash
+$ ssh cirros@<ip address from nova list output>
 ```
 
 #### Accessing the OpenStack Dashboard
