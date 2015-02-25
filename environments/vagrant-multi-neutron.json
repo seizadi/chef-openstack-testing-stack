@@ -83,6 +83,7 @@
                 }
             },
             "compute": {
+                "enabled_apis": "ec2,osapi_compute",
                 "novnc_proxy": {
                     "bind_interface": "eth1",
                     "bind_address": "0.0.0.0"
