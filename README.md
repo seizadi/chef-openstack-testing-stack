@@ -49,8 +49,8 @@ $ chef exec rake multi_nova     # Multi-Nova-networking Controller and 3 Compute
 
 NOTE: If you spin up one of the multi-node builds, you'll have four machines `controller`,`compute1`,`compute2`, and `compute3`.
 The first pass will fail, you need setup the correct interface in the multi_nova or multi_neutron files.
-The output will show a list of available interfaces.
-There are two places to change, look for <put your interface device name here>.
+The output will show a list of available interfaces like: ...TODO...
+There are two places to change, look for `<put your interface device name here>`.
 For Windows 7, open the Control Panel, Network and Internet, Network Connections.  Look in the Connectivity column for a row with "Internet access", and use the "Device Name". For example, "Intel(R) Centrino(R) Advanced-N 6205".
 For Mac, ...TODO...
 For Linux, ...TODO...
