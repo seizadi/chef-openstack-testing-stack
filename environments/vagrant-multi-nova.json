@@ -61,6 +61,7 @@
                 }
             },
             "compute": {
+                "enabled_apis": "ec2,osapi_compute",
                 "libvirt": {
                     "virt_type": "qemu"
                 },
