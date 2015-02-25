@@ -47,12 +47,13 @@ $ chef exec rake multi_neutron  # Multi-Neutron Controller and 3 Compute nodes
 $ chef exec rake multi_nova     # Multi-Nova-networking Controller and 3 Compute nodes
 ```
 
-If you spin up one of the multi-node builds, you'll have four machines `controller`,`compute1`,`compute2`, and `compute3`. They all live on the
-`192.168.100.x` network so keep that in mind. If you'd like to take this and change it around, whatever you decide your controller
-node to be change anything that has the `192.168.100.60` address to that.
-
-NOTE: We also have plans to split out the `multi-neutron-network-node` cluster also so the network node is it's own machine.
-This is also `still not complete`.
+NOTE: If you spin up one of the multi-node builds, you'll have four machines `controller`,`compute1`,`compute2`, and `compute3`.
+The first pass will fail, you need setup the correct interface in the multi_nova or multi_neutron files.
+The output will show a list of available interfaces.
+There are two places to change, look for <put your interface device name here>.
+For Windows 7, open the Control Panel, Network and Internet, Network Connections.  Look in the Connectivity column for a row with "Internet access", and use the "Device Name". For example, "Intel(R) Centrino(R) Advanced-N 6205".
+For Mac, ...TODO...
+For Linux, ...TODO...
 
 ### Access the Controller
 
@@ -189,8 +190,10 @@ When using this on a Windows platform, here are some tweaks to make this work.
 
 ## TODOs
 
+- Better instructions for multi-node network setup
 - Better support for aio_neutron and muilt node tests
 - Support for floating ip's
+- Split out the `multi-neutron-network-node` cluster also so the network node is it's own machine
 - Support for swift multi node test
 - Easier debugging. Maybe a script to pull the logs from the controller.
 - More automated verification testing.  Tie into some amount of [tempest](https://github.com/openstack/tempest) or [refstack](https://wiki.openstack.org/wiki/RefStack)? for basic cluster testing.
