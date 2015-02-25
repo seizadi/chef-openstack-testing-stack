@@ -19,6 +19,6 @@ For example, on my home network, my laptop as and ip of 192.168.1.xxx, so I set 
 The device interface must be is specified by name in the multi-nova.rb file.
 There are two places to change, look for `<put your interface device name here>`.
 
-+ For Windows 7, open the Control Panel, Network and Internet, Network Connections.  Look in the Connectivity column for a row with "Internet access", and use the "Device Name". For example, "Intel(R) Centrino(R) Advanced-N 6205".
-+ For Mac, ...TODO...
++ For Windows 7, open the Control Panel, Network and Internet, Network Connections.  Look in the Connectivity column for a row with "Internet access", and use the "Device Name". For example, 'Intel(R) Centrino(R) Advanced-N 6205'.
++ For Mac, this works from some: 'en0: Wi-Fi (AirPort)'
 + For Linux, ...TODO...
