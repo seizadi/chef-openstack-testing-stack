@@ -20,7 +20,7 @@ Support for CentOS 6.5 and Ubuntu 12 with Icehouse is available with the stable/
 ```shell
 $ git clone https://github.com/jjasghar/chef-openstack-testing-stack.git testing-stack
 $ cd testing-stack
-$ vi vagrant_linux.rb # change the 'vm.box' to the box you'd like to run.
+$ vi vagrant_linux.rb # change the 'vm.box' to the openstack platform you'd like to run.
 $ chef exec rake berks_vendor
 $ chef exec ruby -e "require 'openssl'; File.binwrite('.chef/validator.pem', OpenSSL::PKey::RSA.new(2048).to_pem)"
 ```
