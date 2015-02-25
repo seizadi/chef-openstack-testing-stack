@@ -28,13 +28,22 @@ $ chef exec ruby -e "require 'openssl'; File.binwrite('.chef/validator.pem', Ope
 The stackforge OpenStack cookbooks by default use databags for configuring passwords.  There are four
 data_bags : *user_passwords*, *db_passwords*, *service_passwords*, *secrets*. I have a already created
 the `data_bags/` directory, so you shouldn't need to make them, if you do something's broken.
-
-You may also need to change the networking options around the `aio-nova.rb`, `aio-neutron.rb`, `multi-nova.rb` or `multi-neutron.rb`
-files. I wrote this on my MacBook Pro with an `en0` you're mileage may vary.
+See [Databag](#Databags) section below for more details.
 
 **NOTE**: If you are running Ubuntu 14.04 LTS and as your **base** compute machine, you should note that the shipped
 kernel `3.13.0-24-generic` has networking issues, and the best way to resolve this is
 via: `apt-get install linux-image-generic-lts-utopic`. This will install at least `3.16.0` from the Utopic hardware enablement.
+
+## Supported Environments
+
+* All in One
+  * Nova networking 
+  * Neutron networking
+* Multi-Node
+  * Nova networking
+  * Nuetron networking
+
+For each environment, there's a corresponding readme file in the doc directory.  Please review that for specific details and additional setup that might be required before deploying the cloud.
 
 ## Rake Deploy Commands
 
@@ -46,15 +55,6 @@ $ chef exec rake aio_neutron    # All-in-One Neutron Controller
 $ chef exec rake multi_neutron  # Multi-Neutron Controller and 3 Compute nodes
 $ chef exec rake multi_nova     # Multi-Nova-networking Controller and 3 Compute nodes
 ```
-
-NOTE: If you spin up one of the multi-node builds, you'll have four machines `controller`,`compute1`,`compute2`, and `compute3`.
-The first pass will fail, you need setup the correct interface in the multi_nova or multi_neutron files.
-The output will show a list of available interfaces like: ...TODO...
-There are two places to change, look for `<put your interface device name here>`.
-
-+ For Windows 7, open the Control Panel, Network and Internet, Network Connections.  Look in the Connectivity column for a row with "Internet access", and use the "Device Name". For example, "Intel(R) Centrino(R) Advanced-N 6205".
-+ For Mac, ...TODO...
-+ For Linux, ...TODO...
 
 ### Access the Controller
 
