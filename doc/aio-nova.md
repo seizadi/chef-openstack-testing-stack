@@ -1,3 +1,3 @@
 # All in One with Nova networking
 
-todo...
+The defaults in the aio-nova.rb and the environments/vagrant-aio-nova.json should work without any changes.
