@@ -32,7 +32,7 @@ the `data_bags/` directory, so you shouldn't need to make them, if you do someth
 You may also need to change the networking options around the `aio-nova.rb`, `aio-neutron.rb`, `multi-nova.rb` or `multi-neutron.rb`
 files. I wrote this on my MacBook Pro with an `en0` you're mileage may vary.
 
-**NOTE**: If you are running Ubuntu 14.04 LTS and as your base compute machine, you should note that the shipped
+**NOTE**: If you are running Ubuntu 14.04 LTS and as your **base** compute machine, you should note that the shipped
 kernel `3.13.0-24-generic` has networking issues, and the best way to resolve this is
 via: `apt-get install linux-image-generic-lts-utopic`. This will install at least `3.16.0` from the Utopic hardware enablement.
 
@@ -51,9 +51,10 @@ NOTE: If you spin up one of the multi-node builds, you'll have four machines `co
 The first pass will fail, you need setup the correct interface in the multi_nova or multi_neutron files.
 The output will show a list of available interfaces like: ...TODO...
 There are two places to change, look for `<put your interface device name here>`.
-For Windows 7, open the Control Panel, Network and Internet, Network Connections.  Look in the Connectivity column for a row with "Internet access", and use the "Device Name". For example, "Intel(R) Centrino(R) Advanced-N 6205".
-For Mac, ...TODO...
-For Linux, ...TODO...
+
++ For Windows 7, open the Control Panel, Network and Internet, Network Connections.  Look in the Connectivity column for a row with "Internet access", and use the "Device Name". For example, "Intel(R) Centrino(R) Advanced-N 6205".
++ For Mac, ...TODO...
++ For Linux, ...TODO...
 
 ### Access the Controller
 
