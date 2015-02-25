@@ -10,9 +10,8 @@ Changes need to be made to the multi-nova.rb and the environments\vagrant-multi-
 
 ### Bridge IP Address
 
-The ip address used for the bridge should on the same network as your machine connects to the internet.
-For example, on my home network, my laptop as and ip of 192.168.1.xxx, so I set the bridge address to
-192.168.1.60.  Make this change in the multi-nova.rb and the environments\vagrant-multi-nova.json files.
+The ip address used for the bridge should on the same network as your machine connects to the internet. Change the '172.16.100.' ip address in the multi-nova.rb and the environments\vagrant-multi-nova.json files.
+For example, on my home network, my laptop as and ip of 192.168.1.xxx, so I set the bridge address to 192.168.1.60.  
 
 ### Device interface
 
