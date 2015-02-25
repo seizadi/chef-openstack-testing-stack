@@ -13,3 +13,4 @@ vms/
 .chef/nodienode.pem
 .chef/validator.pem
 .chef/local-mode-cache/
+.project
