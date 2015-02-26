@@ -1,3 +1,12 @@
+# DEPRICATED: please go to https://github.com/stackforge/openstack-chef-repo
+
+https://github.com/stackforge/openstack-chef-repo
+
+https://github.com/stackforge/openstack-chef-repo
+
+https://github.com/stackforge/openstack-chef-repo
+
+
 # OpenStack cluster with chef-provisioning
 
 This is the testing framework for OpenStack and Chef. We leverage this to test against our changes to our [cookbooks](https://wiki.openstack.org/wiki/Chef/GettingStarted) to make sure
