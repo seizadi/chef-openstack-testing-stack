@@ -20,7 +20,7 @@ Support for CentOS 6.5 and Ubuntu 12 with Icehouse is available with the stable/
 ```shell
 $ git clone https://github.com/jjasghar/chef-openstack-testing-stack.git testing-stack
 $ cd testing-stack
-$ vi vagrant_linux.rb # change the 'vm.box' to the box you'd like to run.
+$ vi vagrant_linux.rb # change the 'vm.box' to the openstack platform you'd like to run.
 $ chef exec rake berks_vendor
 $ chef exec ruby -e "require 'openssl'; File.binwrite('.chef/validator.pem', OpenSSL::PKey::RSA.new(2048).to_pem)"
 ```
@@ -28,13 +28,22 @@ $ chef exec ruby -e "require 'openssl'; File.binwrite('.chef/validator.pem', Ope
 The stackforge OpenStack cookbooks by default use databags for configuring passwords.  There are four
 data_bags : *user_passwords*, *db_passwords*, *service_passwords*, *secrets*. I have a already created
 the `data_bags/` directory, so you shouldn't need to make them, if you do something's broken.
+See [Databag](#Databags) section below for more details.
 
-You may also need to change the networking options around the `aio-nova.rb`, `aio-neutron.rb`, `multi-nova.rb` or `multi-neutron.rb`
-files. I wrote this on my MacBook Pro with an `en0` you're mileage may vary.
-
-**NOTE**: If you are running Ubuntu 14.04 LTS and as your base compute machine, you should note that the shipped
+**NOTE**: If you are running Ubuntu 14.04 LTS and as your **base** compute machine, you should note that the shipped
 kernel `3.13.0-24-generic` has networking issues, and the best way to resolve this is
 via: `apt-get install linux-image-generic-lts-utopic`. This will install at least `3.16.0` from the Utopic hardware enablement.
+
+## Supported Environments
+
+* All in One
+  * Nova networking 
+  * Neutron networking
+* Multi-Node
+  * Nova networking
+  * Nuetron networking
+
+For each environment, there's a corresponding readme file in the doc directory.  Please review that for specific details and additional setup that might be required before deploying the cloud.
 
 ## Rake Deploy Commands
 
@@ -46,13 +55,6 @@ $ chef exec rake aio_neutron    # All-in-One Neutron Controller
 $ chef exec rake multi_neutron  # Multi-Neutron Controller and 3 Compute nodes
 $ chef exec rake multi_nova     # Multi-Nova-networking Controller and 3 Compute nodes
 ```
-
-If you spin up one of the multi-node builds, you'll have four machines `controller`,`compute1`,`compute2`, and `compute3`. They all live on the
-`192.168.100.x` network so keep that in mind. If you'd like to take this and change it around, whatever you decide your controller
-node to be change anything that has the `192.168.100.60` address to that.
-
-NOTE: We also have plans to split out the `multi-neutron-network-node` cluster also so the network node is it's own machine.
-This is also `still not complete`.
 
 ### Access the Controller
 
@@ -189,8 +191,24 @@ When using this on a Windows platform, here are some tweaks to make this work.
 
 ## TODOs
 
+- Better instructions for multi-node network setup
 - Better support for aio_neutron and muilt node tests
 - Support for floating ip's
+- Split out the `multi-neutron-network-node` cluster also so the network node is it's own machine
 - Support for swift multi node test
 - Easier debugging. Maybe a script to pull the logs from the controller.
 - More automated verification testing.  Tie into some amount of [tempest](https://github.com/openstack/tempest) or [refstack](https://wiki.openstack.org/wiki/RefStack)? for basic cluster testing.
+
+# License #
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
