@@ -1,11 +1,4 @@
-# DEPRICATED: please go to https://github.com/stackforge/openstack-chef-repo
-
-https://github.com/stackforge/openstack-chef-repo
-
-https://github.com/stackforge/openstack-chef-repo
-
-https://github.com/stackforge/openstack-chef-repo
-
+# DEPRECATED: please go to https://github.com/stackforge/openstack-chef-repo
 
 # OpenStack cluster with chef-provisioning
 
@@ -46,7 +39,7 @@ via: `apt-get install linux-image-generic-lts-utopic`. This will install at leas
 ## Supported Environments
 
 * All in One
-  * Nova networking 
+  * Nova networking
   * Neutron networking
 * Multi-Node
   * Nova networking
@@ -132,14 +125,14 @@ To remove all the nodes and start over again with a different environment or dif
 $ chef exec rake destroy_machines
 ```
 
-To refresh all the cookbooks, use the following rake commands.  
+To refresh all the cookbooks, use the following rake commands.
 
 ```bash
 $ chef exec rake destroy_cookbooks
 $ chef exec rake berks_vendor
 ```
 
-To cleanup everything, use the following rake command.  
+To cleanup everything, use the following rake command.
 
 ```bash
 $ chef exec rake clean
