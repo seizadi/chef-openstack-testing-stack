@@ -31,6 +31,11 @@ task :aio_nova do
   run_command('chef-client -z vagrant_linux.rb aio-nova.rb')
 end
 
+desc "All-in-One Nova-networking OpenCrowbar build"
+task :aio_nova_crowbar do
+  run_command('chef-client -z crowbar_linux.rb aio-nova-crowbar.rb')
+end
+
 desc "Multi-Neutron build"
 task :multi_neutron do
   run_command('chef-client -z vagrant_linux.rb multi-neutron.rb')
